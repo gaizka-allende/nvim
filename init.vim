@@ -361,7 +361,7 @@ set path+=**
 "folders to ignore
 :set wildignore+=*/node_modules/*
 
-
+set inccommand=nosplit  
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins

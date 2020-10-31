@@ -386,6 +386,10 @@ let g:deoplete#enable_at_startup = 1
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ianks/vim-tsx'
 
+"prettier with autosave
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
 " Initialize plugin system
 call plug#end()
-pi@raspberrypi:~ 

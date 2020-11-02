@@ -384,6 +384,11 @@ endif
 let g:deoplete#enable_at_startup = 1
 
 Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+
 Plug 'ianks/vim-tsx'
 
 "prettier with autosave

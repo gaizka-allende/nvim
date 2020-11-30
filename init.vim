@@ -392,6 +392,7 @@ let g:ctrlp_prompt_mappings = {
 Plug 'ianks/vim-tsx'
 
 Plug 'mattn/emmet-vim'
+map tt <C-y>,
 
 "prettier with autosave
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }

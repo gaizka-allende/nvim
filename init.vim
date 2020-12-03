@@ -383,6 +383,9 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+ Plug 'preservim/nerdtree'
+ map <C-o> :NERDTreeToggle<CR>
+
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],

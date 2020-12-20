@@ -1,8 +1,61 @@
-"execute pathogen#infect()
-"syntax enable
-"set background=dark
-"colorscheme solarized
-"filetype plugin indent on
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+set inccommand=nosplit
+
+call plug#begin()
+
+Plug 'preservim/nerdtree'
+"Toggle NerdTree
+map <C-e> :NERDTreeToggle<CR>
+
+Plug 'tpope/vim-fugitive'
+b
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"let g:deoplete#enable_at_startup = 1
+
+Plug 'joshdick/onedark.vim'
+
+Plug 'ctrlpvim/ctrlp.vim'
+
+"open ctrlp in new tab
+"let g:ctrlp_prompt_mappings = {
+"    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+"    \ 'AcceptSelection("t")': ['<cr>'],
+"    \ }
+
+Plug 'ianks/vim-tsx'
+
+Plug 'mattn/emmet-vim'
+map tt <C-y>,
+let g:user_emmet_mode='a'
+
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+Plug 'tpope/vim-surround'
+
+Plug 'branwright1/salvation-vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Initialize plugin system
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -55,14 +108,6 @@ set langmenu=en
 " Turn on the WiLd menu
 set wildmenu
 
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-endif
-
 "Always show current position
 set ruler
 
@@ -105,12 +150,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Properly disable sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
-
-
 " Add a bit extra margin to the left
 set foldcolumn=1
 
@@ -119,19 +158,14 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
+set background=dark
+colorscheme onedark
 
 " Enable 256 colors palette in Gnome Terminal
 "if $COLORTERM == 'gnome-terminal'
 "    set t_Co=256
 "endif
-
-"try
-"    colorscheme desert
-"catch
-"endtry
-
-"set background=dark
 
 " Set extra options when running in GUI mode
 "if has("gui_running")
@@ -358,49 +392,9 @@ endfunction
 " Search down into subfoldersgt
 set path+=**
 
-"folders to ignore
-:set wildignore+=*/node_modules/*
+"files and folders to ignore
+set wildignore+=*/.git/*,*/node_modules/*,*/.DS_Store
 
-set inccommand=nosplit  
+let g:onedark_termcolors=256
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
-
-call plug#begin()
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
- Plug 'preservim/nerdtree'
- map <C-o> :NERDTreeToggle<CR>
-
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-    \ 'AcceptSelection("t")': ['<cr>'],
-    \ }
-
-Plug 'ianks/vim-tsx'
-
-Plug 'mattn/emmet-vim'
-map tt <C-y>,
-
-"prettier with autosave
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-
-" Initialize plugin system
-call plug#end()
+source $HOME/.config/nvim/configs/coc.vim

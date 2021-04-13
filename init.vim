@@ -77,7 +77,7 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
-nmap ss :w!<cr>
+nmap ss :wa!<cr>
 
 inoremap jj <Esc>
 nmap ee :e<space>.<cr>

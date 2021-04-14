@@ -281,6 +281,9 @@ endtry
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" static cursor in normal mode and blinking bar in insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 """"""""""""""""""""""""""""""
 " => Status line

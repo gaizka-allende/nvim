@@ -52,25 +52,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "NerdTree related
 Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons'
-
 "Toggle NerdTree
 map <C-e> :NERDTreeToggle<CR>
 
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'ryanoasis/vim-devicons'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 call plug#end()

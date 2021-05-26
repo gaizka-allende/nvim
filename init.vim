@@ -10,13 +10,7 @@ endif
 set inccommand=nosplit
 
 call plug#begin()
-
-Plug 'preservim/nerdtree'
-"Toggle NerdTree
-map <C-e> :NERDTreeToggle<CR>
-
-Plug 'tpope/vim-fugitive'
-b
+  
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
@@ -54,7 +48,31 @@ Plug 'branwright1/salvation-vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Initialize plugin system
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"NerdTree related
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
+
+"Toggle NerdTree
+map <C-e> :NERDTreeToggle<CR>
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -10,6 +10,8 @@ endif
 set inccommand=nosplit
 
 call plug#begin()
+
+Plug 'aluriak/nerdcommenter'
   
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

@@ -189,6 +189,9 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+"remap exit terminal mode
+tnoremap <ESC> <C-\><C-n> 
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
